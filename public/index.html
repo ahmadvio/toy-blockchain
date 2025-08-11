@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Toy Blockchain Explorer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{font-family:Inter,Segoe UI,Arial;margin:0;padding:20px;background:#0f172a;color:#e6eef8}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .card{background:#0b1220;border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    button{padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+    input,select{padding:8px;border-radius:8px;border:1px solid #22314a;background:#071122;color:#e6eef8}
+    .small{font-size:12px;color:#9fb0d0}
+    pre{white-space:pre-wrap;word-break:break-word}
+    .block{border-left:3px solid #1f8ef1;padding-left:10px;margin-bottom:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Toy Blockchain Explorer</h1>
+      <div class="small">A minimal educational blockchain — mine blocks in your browser (server-side PoW)</div>
+    </div>
+    <div>
+      <label class="small">Difficulty:
+        <select id="difficulty">
+          <option>1</option><option selected>3</option><option>4</option><option>5</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <div class="card">
+    <h3>Controls</h3>
+    <div style="display:flex;gap:8px;align-items:center">
+      <input id="dataInput" placeholder='{"msg":"hello"}' style="flex:1" />
+      <button id="mineBtn">Mine Block</button>
+      <button id="refreshBtn">Refresh Chain</button>
+    </div>
+    <div class="small" style="margin-top:8px">Mining runs server-side (simple PoW). Time displayed after mining.</div>
+  </div>
+
+  <div id="status" class="card">
+    <h3>Chain Status</h3>
+    <div id="info">Loading...</div>
+  </div>
+
+  <div id="blocks"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
